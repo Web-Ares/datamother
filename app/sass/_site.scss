@@ -1,0 +1,329 @@
+.site {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  min-width: 1000px;
+  min-height: 100%;
+  background: #ebebeb;
+  @include main-font2();
+  font-size: 16px;
+  line-height: 28px;
+  color: #818193;
+
+  &:after {
+    display: block;
+    clear: both;
+    width: 100%;
+    height: 107px;
+    content: '';
+  }
+
+}
+.site__header {
+  position: relative;
+  background: #f1f1f1;
+}
+.site__header-layout {
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 86px;
+  padding: 26px 19px 0;
+  text-align: right;
+}
+.site__header-menu {
+  display: inline-block;
+  vertical-align: top;
+  padding: 18px 0 0 0;
+  @include main-font4();
+  color: #70798b;
+  font-size: 16px;
+  line-height: 18px;
+
+  ul {
+
+    li {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 0 0 44px;
+
+      a {
+        display: block;
+        position: relative;
+        padding: 0 27px 0 0;
+        color: #70798b;
+        -webkit-transition: color 200ms ease-in-out;
+        transition: color 200ms ease-in-out;
+
+        &:hover {
+          color: #4a505f;
+        }
+
+        &:before,
+        &:after {
+          position: absolute;
+          right: 13px;
+          top: 5px;
+          width: 1px;
+          height: 9px;
+          background: #b3c0d4;
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+          -webkit-transform-origin: top;
+          transform-origin: top;
+          content: '';
+        }
+        &:after {
+          right: 0;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+
+      }
+
+    }
+
+  }
+
+}
+.site__header-user {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0 0 33px;
+
+  button {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    -webkit-transition: opacity 200ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+  }
+
+  .site__header-user-exit {
+    width: 18px;
+    height: 21px;
+    background-image: url("../img/user-exit.png");
+  }
+  .site__header-user-settings {
+    width: 22px;
+    height: 22px;
+    background-image: url("../img/user-settings.png");
+  }
+
+}
+.site__header-user-info {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px 5px 0;
+  font-size: 13px;
+  line-height: 15px;
+  color: #a9a9a9;
+  letter-spacing: 0.6px;
+}
+.site__header-user-name {
+  margin-top: 3px;
+  color: #70798b;
+  font-size: 16px;
+  line-height: 18px;
+  @include main-font4();
+}
+.site__content-inner {
+  display: block;
+  position: relative;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 13px;
+}
+.site__title {
+  margin: 0 0 10px;
+  padding: 8px 0;
+  background: #70798b;
+  color: #f1f1f1;
+  font-size: 20px;
+  line-height: 24px;
+  @include main-font1();
+}
+.site__footer {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 107px;
+  background: #70798b;
+  font-size: 14px;
+  line-height: 18px;
+  color: #f1f1f1;
+  text-align: center;
+}
+.site__footer-layout {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1920px;
+  height: 107px;
+  padding: 0 20px;
+  margin: 0 auto;
+  padding-top: 59px;
+}
+.site__footer-premium {
+  color: #4ce798;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+}
+.site__field {
+  display: inline-block;
+  vertical-align: middle;
+  width: 298px;
+  height: 42px;
+  padding: 10px 10px !important;
+  border: 1px solid #a1a1a1;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  color: #444a57;
+  -webkit-appearance: none;
+  -webkit-transition: border 200ms ease-in-out;
+  transition: border 200ms ease-in-out;
+
+  &::-webkit-search-cancel-button{
+    display: none;
+  }
+  &:invalid {
+    border: 1px solid #a1a1a1 !important;
+  }
+  &:focus {
+    border-color: #000 !important;
+  }
+  &.not-touched {
+    border-color: #ff0000 !important;
+    color: #ff0000 !important;
+  }
+
+
+  &.site__field_large {
+    width: 508px;
+  }
+  &.site__field_small {
+    width: 86px;
+  }
+  &.site__field_date {
+    background-image: url("../img/date.png");
+    background-repeat: no-repeat;
+    background-position: 95.3% center;
+    background-size: 15px 17px;
+
+    &.not-touched {
+      background-image: url("../img/date-error.png");
+    }
+
+  }
+
+}
+.site__label {
+  display: inline-block;
+  vertical-align: middle;
+  width: 185px;
+  padding: 0 17px 0 0;
+  font-size: 13px;
+  line-height: 16px;
+  color: #6d727a;
+  @include main-font6();
+  text-align: right;
+
+  &.site__label-theme {
+    position: relative;
+
+    &:before {
+      display: inline-block;
+      vertical-align: middle;
+      width: 15px;
+      height: 15px;
+      margin: 0 10px 0 0;
+      background-image: url("../img/add.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 15px 15px;
+      content: '';
+    }
+
+  }
+  &.not-touched {
+    color: #ff0000 !important;
+  }
+
+}
+
+.user-table__file {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+.user-table__file-val {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  z-index: 2;
+  width: 300px;
+  padding: 15px !important;
+  background: none;
+  border: none;
+  color: #444a57;
+  font-size: 13px !important;
+  line-height: 16px !important;
+}
+.user-table__file-input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 153px;
+  height: 43px;
+
+  &:hover {
+
+    +.btn_5 {
+      background-color: #a0a0a0;
+    }
+
+  }
+
+}
+
+@media (min-width: $phone-landscape) {
+  .site {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .site {
+
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .site {
+
+  }
+}
+@media (min-width: $desktop) {
+  .site {
+
+  }
+}
+

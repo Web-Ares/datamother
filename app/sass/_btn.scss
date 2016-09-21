@@ -1,0 +1,347 @@
+.btn {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin: 0 0 10px;
+  border: none;
+  height: 40px;
+  padding: 0 10px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 16px;
+  background-color: #38b84d;
+  text-transform: uppercase;
+  @include main-font7();
+  text-align: center;
+  -webkit-transition: background 200ms ease-in-out;
+  transition: background 200ms ease-in-out;
+
+  span {
+    @include flexbox();
+    @include flex-direction(row);
+    @include align-items(center);
+    @include justify-content(center);
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    background-color: #329b45;
+  }
+  &:active {
+    background-color: #2d863f;
+  }
+
+  &.btn_refresh {
+    padding: 5px 25px 5px 42px;
+    margin: 0 8px 10px 0;
+    background-image: url("../img/refresh.png");
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 28px 26px;
+  }
+  &.btn_2 {
+    margin: 10px 7px;
+    height: 21px;
+    @include main-font1();
+    font-size: 13px;
+    line-height: 13px;
+
+  }
+  &.btn_approve {
+    width: 105px;
+    background: #38b84d;
+
+    &:hover {
+      background: #32a346;
+    }
+    &:active {
+      background: #298c3c;
+    }
+
+  }
+  &.btn_pending {
+    width: 81px;
+    background-color: #8e8e8e;
+
+    &:hover {
+      background-color: #727272;
+    }
+    &:active {
+      background-color: #5f5f5f;
+    }
+
+  }
+  &.btn_redo {
+    width: 81px;
+    background-color: #097ccd;
+
+    &:hover {
+      background-color: #0968ae;
+    }
+    &:active {
+      background-color: #084e8d;
+    }
+
+  }
+  &.btn_cancel {
+    width: 95px;
+    background-color: #f33535;
+
+    &:hover {
+      background-color: #ce3131;
+    }
+    &:active {
+      background-color: #b42929;
+    }
+
+  }
+  &.btn_message {
+    width: 28px;
+    background-color: #b9b9b9;
+    background-image: url("../img/message.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 17px;
+
+    &:hover {
+      background-color: #9d9d9d;
+    }
+    &:active {
+      background-color: #838383;
+    }
+
+  }
+  &.btn_3 {
+    padding: 10px 7px;
+    margin: 0;
+    width: 137px;
+    height: 45px;
+    color: #fff;
+    border: none;
+    @include main-font4();
+    font-size: 14px;
+    line-height: 14px;
+    background-color: #3fc380;
+
+    &:hover {
+      background-color: #37a267;
+    }
+    &:active {
+      background-color: #2d8050;
+    }
+
+    &.btn_red {
+      @include main-font1();
+      background-color: #f7776a;
+
+      &:hover {
+        background-color: #e66e61;
+      }
+      &:active {
+        background-color: #ba5c52;
+      }
+    }
+
+  }
+  &.btn_4 {
+    vertical-align: middle;
+    margin: 0 1px 0;
+    padding: 10px 33px;
+    min-width: 57px;
+    height: 43px;
+    font-size: 17px;
+    line-height: 17px;
+    background-color: #3fc380;
+    @include main-font8();
+
+    &:hover {
+      background-color: #34a169;
+    }
+    &:active {
+      background-color: #2a7749;
+    }
+
+    &.btn_4_1 {
+      background-color: #e830e6;
+
+      &:hover {
+        background-color: #cf2ccd;
+      }
+      &:active {
+        background-color: #b228b0;
+      }
+
+    }
+    &.btn_4_2 {
+      background-color: #f33535;
+
+      &:hover {
+        background-color: #d32e2e;
+      }
+      &:active {
+        background-color: #b02c2c;
+      }
+
+    }
+
+  }
+  &.btn_file {
+    background-color: #b7b7b7;
+    background-image: url("../img/file.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 59px 45px;
+
+    &:hover {
+      background-color: #8f8f8f;
+    }
+    &:active {
+      background-color: #616161;
+    }
+
+  }
+  &.btn_5 {
+    vertical-align: middle;
+    margin: 0;
+    padding: 10px 27px;
+    width: 153px;
+    height: 43px;
+    font-size: 13px;
+    line-height: 13px;
+    color: #444a57;
+    background-color: #b0b0b0;
+    @include main-font4();
+    text-transform: none;
+
+  }
+
+}
+.btn-lock {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  margin: 0 0 0 16px;
+  padding: 3px 10px;
+  padding-left: 43px;
+  height: 21px;
+  font-size: 14px;
+  line-height: 14px;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  @include main-font7();
+  text-align: center;
+  -webkit-transition: background 200ms linear;
+  transition: background 200ms linear;
+
+  >span {
+    @include flexbox();
+    @include flex-direction(row);
+    @include align-items(center);
+    @include justify-content(center);
+    width: 100%;
+    height: 100%;
+
+  }
+  >div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 33px;
+    height: 100%;
+    border-right: 1px solid #fff;
+    background-color: #3847b8;
+    background-image: url("../img/lock.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 11px 16px;
+    text-indent: -9999px;
+    -webkit-transition: background 200ms linear;
+    transition: background 200ms linear;
+  }
+
+  &.btn-lock_big {
+    height: 27px;
+    font-size: 19px;
+    line-height: 19px;
+    padding: 1px 8px 1px 37px;
+    margin: 0 0 0 4px;
+  }
+  &.btn-lock_leader {
+    background-color: #3847b8;
+
+    &:hover {
+      background-color: #2d3b97;
+
+      >div {
+        background-color: #2d3b97;
+      }
+
+    }
+    &:active {
+      background-color: #18204f;
+
+      >div {
+        background-color: #18204f;
+      }
+
+    }
+
+    >div {
+      background-color: #3847b8;
+    }
+
+  }
+  &.btn-lock_manager {
+    background-color: #bb32ff;
+
+    &:hover {
+      background-color: #922dc7;
+
+      >div {
+        background-color: #922dc7;
+      }
+
+    }
+    &:active {
+      background-color: #702297;
+
+      >div {
+        background-color: #702297;
+      }
+
+    }
+
+    >div {
+      background-color: #bb32ff;
+
+    }
+
+  }
+  &.btn-lock_master {
+    background-color: #ff7518;
+
+    &:hover {
+      background-color: #dc6614;
+
+      >div {
+        background-color: #dc6614;
+      }
+
+    }
+    &:active {
+      background-color: #a14e10;
+
+      >div {
+        background-color: #a14e10;
+      }
+
+    }
+
+    >div {
+      background-color: #ff7518;
+    }
+
+  }
+}

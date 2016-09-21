@@ -1,0 +1,64 @@
+.nice-checkbox {
+  display: inline-block;
+  vertical-align: top;
+  user-select: none;
+  margin: 0 0 15px;
+
+  input[ type = checkbox ] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+
+    &:checked + label {
+
+      &:before {
+        display: block;
+      }
+
+    }
+
+    &:disabled + label {
+      cursor: default;
+      opacity: .5;
+    }
+
+  }
+  label {
+    display: block;
+    position: relative;
+    min-height: 24px;
+    padding: 4px 0 1px 34px;
+    font-size: 15px;
+    line-height: 18px;
+    color: $nice-checkbox-color;
+    cursor: pointer;
+    @include main-font4();
+
+    &:after,
+    &:before {
+      position: absolute;
+      content: '';
+    }
+
+    &:after {
+      top: 0;
+      left: 0;
+      width: 22px;
+      height: 22px;
+      background: #fff;
+      border: 1px solid $nice-checkbox-after-color;
+    }
+
+    &:before {
+      display: none;
+      z-index: 1;
+      top: 6px;
+      left: 5px;
+      background: url('../img/checkbox.png') no-repeat left top/contain;
+      width: 16px;
+      height: 12px;
+      content: '';
+    }
+
+  }
+
+}

@@ -1,0 +1,92 @@
+.lock-dropdown {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  z-index: 3;
+  padding: 8px 5px 8px 13px;
+  width: 153px;
+  height: 42px;
+  background: #fff;
+  border: 1px solid #a1a1a1;
+  cursor: pointer;
+
+  >span {
+    display: block;
+    text-transform: uppercase;
+    padding: 7px 0 0 27px;
+    min-height: 20px;
+    @include main-font6();
+    font-size: 14px;
+    line-height: 14px;
+    color: #a1a1a1;
+    background: url("../img/unlock.png") no-repeat center left/16px 20px;
+    cursor: pointer;
+  }
+  .btn-lock {
+    width: 100%;
+    height: 25px;
+    font-size: 15px;
+    line-height: 15px;
+  }
+  &.opened {
+
+    .lock-dropdown__arrow {
+      transform: rotate(180deg);
+    }
+    .lock-dropdown__list {
+      opacity: 1;
+      visibility: visible;
+    }
+
+  }
+}
+.lock-dropdown__arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 35px;
+  transform-origin: center;
+  transition: transform 200ms ease-in-out;
+
+  &:before,
+  &:after {
+    position: absolute;
+    right: 23px;
+    top: 57%;
+    width: 1px;
+    height: 9px;
+    background: #b3c0d4;
+    transform: translateY(-50%) rotate(-38deg);
+    transform-origin: top;
+    content: '';
+  }
+  &:after {
+    right: 12px;
+    transform: translateY(-50%) rotate(38deg);
+  }
+
+}
+.lock-dropdown__list {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 40px;
+  left: -1px;
+  width: calc( 100% + 2px );
+  background: #fff;
+  border: 1px solid #a1a1a1;
+  -webkit-transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+
+  li {
+    border-top: 1px solid #a1a1a1;
+    padding: 1px 27px 1px 17px;
+
+    &:first-child {
+      border-top: none;
+    }
+
+  }
+
+}
