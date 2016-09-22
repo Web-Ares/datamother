@@ -10,6 +10,7 @@
         } );
     } );
 
+    // for custom select
     var WebstersSelect = function( params ){
 
         //private properties
@@ -51,7 +52,7 @@
                 }
                 _text.text( curText );
             },
-            _hidePopup = function(){
+            _hidePopup = function(){ // hide dropdown list in select
                 _opened = false;
 
                 if( !_showType ){
@@ -120,7 +121,7 @@
             _setMobileView = function(){
                 _wrap.addClass( 'websters-select_mobile' );
             },
-            _showPopup = function(){
+            _showPopup = function(){  // create dropdown list in select
                 var selects = $( 'select' ),
                     list = $( '<ul></ul>'),
                     curScroll = _window.scrollTop(),

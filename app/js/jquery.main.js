@@ -50,6 +50,7 @@
 
     } );
 
+    // for stylized input[type="file"]
     var FileInput = function (obj) {
 
         //private properties
@@ -80,6 +81,7 @@
         _init();
     };
 
+    // autocomplete in search field
     var AutoComplete = function( obj ) {
 
         //private properties
@@ -102,11 +104,11 @@
 
         var _addEvents = function() {
 
-                _inputSearch.on( {
+                _inputSearch.on( { // this function handles a methods in search fields: keyUp and keyDown
                     'keyup': function( I ) {
 
                         switch( I.keyCode ) {
-                            case 13:
+                            case 13: // if press Enter
                                 _suggestSelected = 0;
 
                                 var item = $( '.user-table__search-result').find( '.user-table__search-result-item'),
@@ -195,7 +197,7 @@
                     }
                 } );
 
-                _deleteBtn.click( function() {
+                _deleteBtn.click( function() { // this function handles a click on the button DELETE
 
                     $('.user-table__result').removeClass('visible');
                     $('.user-table__search-warning').removeClass('visible');
@@ -205,7 +207,7 @@
                     return false;
 
                 } );
-                _changeBtn.click( function() {
+                _changeBtn.click( function() { // this function handles a click on the button CHANGE
 
                     $('.user-table__result').removeClass('visible');
                     $('.user-table__search-warning').removeClass('visible');
@@ -215,7 +217,7 @@
 
                 } );
 
-                _body.click( function() {
+                _body.click( function() { // if click outside dropdown list with results, must hide this list
                     $( '.user-table__search-result' ).remove();
                     _suggestSelected = 0;
 
@@ -241,7 +243,7 @@
                         }
                     }
                 );
-                _body.on(
+                _body.on( // this function handles a click on items in dropdown list with results
                     "click",
                     ".user-table__search-result-item",
                     function() {
@@ -254,7 +256,7 @@
                         _addChosenItems( curText, curItemGameId );
                     }
                 );
-                _body.on(
+                _body.on( // this function handles enter click on selected item in dropdown list with results
                     "keydown",
                     ".user-table__search-result",
                     function( I ) {
@@ -267,7 +269,7 @@
                 );
 
             },
-            _addChosenItems = function( text, gameId ) {
+            _addChosenItems = function( text, gameId ) { // if result was selected hide field search and show infobox
 
                 _chosenResult.addClass('visible');
                 _inputSearch.addClass('hidden');
@@ -276,7 +278,7 @@
                 _match = false;
 
             },
-            _ajaxRequest = function( input, n ) {
+            _ajaxRequest = function( input, n ) { // request for json data
                 var path = _obj.attr( 'data-autocomplite' );
                 _request.abort();
                 _request = $.ajax( {
@@ -373,6 +375,7 @@
         _init();
     };
 
+    // for dropdown UNLOCK / open and close dropdown list
     var LockDropDown = function (obj) {
 
         //private properties
@@ -442,6 +445,8 @@
         _init();
     };
 
+
+    // for clear all fields in the form after clicking RESET button
     var ResetForm = function (obj) {
 
         //private properties
@@ -491,6 +496,8 @@
         _init();
     };
 
+
+    // for all popups. To write data from popups into console.
     var PopupData = function (obj) {
 
         //private properties
@@ -509,7 +516,9 @@
         var _onEvents = function () {
 
                 _btnSend.on( {
-                    click: function() {
+                    click: function() { // check fields after click on SAVE button
+                                        // if emty data not saving
+                                        //if email not valid data no saving
 
 
                         _form.find('input, textarea').each( function() {
@@ -579,8 +588,6 @@
                             }
 
 
-
-
                         } else {
 
                             _form.find('input, textarea').each( function() {
@@ -603,14 +610,14 @@
 
                     }
                 } );
-                _fields.on( {
+                _fields.on( { // remove class EMPTY after focus on field
                     focus: function() {
 
                         $(this).removeClass('error');
 
                     }
                 } );
-                _fields.on( {
+                _fields.on( {  // if fields empty add class EMPTY
                     keyup: function() {
 
                         var curItem = $(this),
@@ -641,7 +648,7 @@
                 } );
 
             },
-            _hidePopup = function() {
+            _hidePopup = function() {  // this function close popup after saving data
 
                 _popup.removeClass('popup_opened');
 
@@ -669,7 +676,7 @@
                 _clearFields();
 
             },
-            _clearFields = function() {
+            _clearFields = function() { // this function clear all fiellds in popup after saving data
 
                 _form.find('input, textarea').each( function() {
 
@@ -681,7 +688,7 @@
                 _flag = false;
 
             },
-            _addEmptyClass = function() {
+            _addEmptyClass = function() { // this function clear all fields in popup after saving data
 
                 _fields.each( function() {
 
@@ -694,7 +701,7 @@
                 } );
 
             },
-            _validateEmail = function ( email ) {
+            _validateEmail = function ( email ) {  // this function for validate email data
                 var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
                 return pattern.test( email );
             },

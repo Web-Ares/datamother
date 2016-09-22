@@ -10,6 +10,8 @@
 
     });
 
+
+    // for all popups
     var Popup = function( obj ){
 
         //private properties
@@ -47,7 +49,7 @@
 
                 return scrollBarWidth;
             },
-            _hide = function(){
+            _hide = function(){  // hide popup
                 _obj.css( {
                     overflowY: 'hidden'
                 } );
@@ -105,7 +107,7 @@
                     }
                 } );
             },
-            _readLockClass = function( btn ) {
+            _readLockClass = function( btn ) { // read class from clicked lock btn
 
                 if( btn.hasClass('btn-lock') ) {
 
@@ -117,12 +119,12 @@
                 }
 
             },
-            _writeLockClass = function( className ) {
+            _writeLockClass = function( className ) { // write class to hidden input in popup from clicked lock btn
 
                 _lockInput.val( className );
 
             },
-            _show = function( className ){
+            _show = function( className ){ // open popup
                 _setPopupContent( className );
 
                 _scrollConteiner.css( {

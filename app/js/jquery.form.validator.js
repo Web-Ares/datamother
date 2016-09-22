@@ -12,6 +12,7 @@
 
     } );
 
+    // check all inputs before send data
     var FormValidator = function (obj) {
 
         //private properties
