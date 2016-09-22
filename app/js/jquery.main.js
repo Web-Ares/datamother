@@ -104,6 +104,7 @@
 
                 _inputSearch.on( {
                     'keyup': function( I ) {
+
                         switch( I.keyCode ) {
                             case 13:
                                 _suggestSelected = 0;
@@ -134,7 +135,7 @@
                                     $('.user-table__search-result' ).remove();
                                 }
 
-                                _match = false;
+
 
                                 return false;
 
@@ -147,6 +148,8 @@
                             default:
                                 var count = 0;
                                 _valueInput = $( this ).val();
+
+                                _match = false;
 
                                 if( _valueInput.length > 0 ) {
 
@@ -187,7 +190,6 @@
                                         _suggestSelected = 0
                                     }
                                 }
-                                _scrollNiceScroll();
                                 break;
                         }
                     }
@@ -265,16 +267,6 @@
                 );
 
             },
-            _addScroll = function() {
-                $( '.user-table__search-result' ).niceScroll({
-                    cursorcolor:"#ebebeb",
-                    cursoropacitymin: "1",
-                    cursorborderradius: "5px",
-                    cursorborder: "none",
-                    cursorwidth: "5px",
-                    enablekeyboard: true
-                });
-            },
             _addChosenItems = function( text, gameId ) {
 
                 _chosenResult.addClass('visible');
@@ -304,9 +296,11 @@
                                 if( key1 == 'caption' ){
 
                                     var $pos = val1.toLowerCase().split(input[0].value.toLowerCase());
+
                                     if ($pos.length >= 2) {
                                         $new_arr.push(val) ;
                                     }
+
                                     if ( input[0].value.toLowerCase() === val1.toLowerCase() ) {
                                         _match = true;
                                     }
@@ -314,11 +308,13 @@
                             }
                         }
 
-                        $( '.search__result' ).remove();
+                        $('.user-table__search-result').remove();
 
                         if( $new_arr.length ) {
 
                             count = $new_arr.length;
+
+                            $('.user-table__search-no-result').remove();
 
                             var resultStr='<div class="user-table__search-result">';
                             for( var i = 0; i <= count - 1; i++ ){
@@ -331,13 +327,9 @@
                             }
                             _countItems = $( '.user-table__search-result-item' ).length;
 
-                            setTimeout( function() {
-                                _addScroll();
-                            }, 1 );
-
                         } else {
 
-                            var resultStr = $('<div class="user-table__search-result"><span class="user-table__search-result-no-matches">No matches</span></div>');
+                            var resultStr = $('<div class="user-table__search-result user-table__search-no-result"><span class="user-table__search-result-no-matches">No matches</span></div>');
 
                             _obj.append( resultStr );
 
@@ -372,16 +364,6 @@
             },
             _init = function() {
                 _addEvents();
-            },
-            _scrollNiceScroll = function() {
-                if( $( '.user-table__search-result-item' ).filter( '.active' ).length ) {
-                    if( $( '.user-table__search-result-item' ).filter( '.active' ).position().top >= $( '.user-table__search-result' ).innerHeight() ) {
-                        $( '.user-table__search-result' ).getNiceScroll( 0 ).doScrollTop( $( '.user-table__search-result-item' ).filter('.active').position().top + $( '.user-table__search-result-item' ).filter( '.active' ).innerHeight(), -1 );
-                    } else if ( $( '.user-table__search-result-item' ).filter( '.active' ).position().top + $( '.user-table__search-result-item' ).filter( '.active' ).innerHeight() <= 0 ) {
-                        $( '.user-table__search-result' ).getNiceScroll( 0 ).doScrollTop( $( '.user-table__search-result-item' ).filter('.active').position().top + $( '.user-table__search-result-item' ).filter( '.active' ).innerHeight(), 1 );
-                    }
-                }
-
             };
 
         //public properties

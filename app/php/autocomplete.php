@@ -17,6 +17,10 @@ $val = $_GET['value'];
     {
         "caption": "simple text4",
         "gameId": "igame_casino4"
+    },
+    {
+        "caption": "simple text5",
+        "gameId": "igame_casino5"
     }
     ]';
 
