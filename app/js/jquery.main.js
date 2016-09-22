@@ -516,11 +516,22 @@
 
                             var field = $(this),
                                 fieldName = field.attr('name'),
-                                fieldValue = field.val();
+                                fieldValue = field.val(),
+                                type = field.attr('type');
 
                             if( !( fieldValue == '' ) ){
 
                                 field.removeClass('empty');
+
+                            }
+
+                            if( type === 'email' ) {
+
+                                if( !_validateEmail( field.val() ) ){
+
+                                    field.addClass( 'empty' );
+
+                                }
 
                             }
 
@@ -532,7 +543,8 @@
 
                                 var field = $(this),
                                     fieldName = field.attr('name'),
-                                    fieldValue = field.val();
+                                    fieldValue = field.val(),
+                                    type = field.attr('type');
 
                                 if( field.is('input[type="checkbox"]') ) {
 
@@ -583,7 +595,6 @@
 
                                 }
 
-
                             } );
 
                         }
@@ -602,13 +613,27 @@
                 _fields.on( {
                     keyup: function() {
 
-                        if( !( $(this).val() == '' ) ){
+                        var curItem = $(this),
+                            type = curItem.attr('type');
 
-                            $(this).removeClass( 'empty' );
+                        if( !( curItem.val() == '' ) ){
+
+                            curItem.removeClass( 'empty' );
 
                         } else {
 
-                            $(this).addClass( 'empty' );
+                            curItem.addClass( 'empty' );
+
+                        }
+
+
+                        if( type === 'email' ) {
+
+                            if( !_validateEmail( curItem.val() ) ){
+
+                                curItem.addClass( 'empty' );
+
+                            }
 
                         }
 
@@ -668,6 +693,10 @@
 
                 } );
 
+            },
+            _validateEmail = function ( email ) {
+                var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+                return pattern.test( email );
             },
             _init = function () {
 

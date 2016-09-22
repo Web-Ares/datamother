@@ -133,6 +133,11 @@
 
     &.error {
       border-color: #ff0000;
+
+      +.popup-form__items-error {
+        display: block;
+      }
+
     }
 
   }
@@ -148,11 +153,22 @@
     @include main-font6();
   }
 
+  .popup-form__items-error {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #ff0000;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
 }
 .popup-form__items {
   padding: 13px 0 0;
 
   >div {
+    position: relative;
     margin: 0 0 9px;
   }
 
